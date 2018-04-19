@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-            <h2>Welcome to Mo-Engage Campaign</h2>
+            <h2>Welcome to MoEngage Campaign</h2>
         </header>
         <div className="App-intro">
             <FilterableTable/>

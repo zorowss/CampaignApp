@@ -29,12 +29,12 @@ class Table extends Component {
 
    deleteRowFromTable = (n,multiple) =>{
 
-        console.log(n);
+
         this.props.deleteRow(n,multiple)
     }
 
     changeName = (obj)=>{
-        console.log(obj);
+        //console.log(obj);
     }
 
     selectRow = (obj) => {
@@ -42,7 +42,7 @@ class Table extends Component {
         let t = this.state.selectedRows
 
         if(t.includes(obj.id)){
-            console.log('here')
+
              let index = t.indexOf(obj.id);
             t.splice(index,1)
         }
@@ -50,7 +50,7 @@ class Table extends Component {
             t = t.concat([obj.id]);
 
 
-        console.log(t)
+
         this.setState({
            selectedRows : t
         })

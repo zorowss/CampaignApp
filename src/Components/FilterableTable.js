@@ -20,8 +20,8 @@ export default class FilterableTable extends Component {
     changeSearchQuery = (text) => {
         let tempData = JSON.parse(window.localStorage.getItem('Data'))
 
-        let data = tempData.filter((obj)=> obj.name.includes(text))
-        console.log(data);
+        let data = tempData.filter((obj)=> (obj.name.toLowerCase()).includes(text.toLowerCase()))
+
         this.setState({
             searchText: text,
             data: data
@@ -31,12 +31,12 @@ export default class FilterableTable extends Component {
     }
 
     deleteRow = (id,multiple)=> {
-        let tempData;
+        let tempData = JSON.parse(window.localStorage.getItem('Data'))
         if (!multiple) {
-            tempData = Data.filter((obj) => id !== obj.id);
+            tempData = tempData.filter((obj) => id !== obj.id);
         }
         else{
-            tempData = Data.filter((obj) => !id.includes(obj.id))
+            tempData = tempData.filter((obj) => !id.includes(obj.id))
         }
 
         window.localStorage.setItem('Data',JSON.stringify(tempData))
